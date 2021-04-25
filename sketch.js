@@ -84,9 +84,9 @@ function draw() {
   
     trex.velocityY = trex.velocityY + 0.8
   
-    if (ground.x < 0){
+    /*if (ground.x < 0){
       ground.x = ground.width/2;
-    }
+    }*/
   
     trex.collide(invisibleGround);
     spawnClouds();
@@ -95,8 +95,21 @@ function draw() {
     if(obstaclesGroup.isTouching(trex)){
         gameState = END;
     }
+    if(score>1000){
+     
+      gameState=END;
+      
+    }
   }
   else if (gameState === END) {
+    if(score>1000){
+     
+      
+      textSize(20);
+      fill("black");
+      text("Well done!!",250,50);
+      text("You have reached 1000 score!",150,80);
+    }
     gameOver.visible = true;
     restart.visible = true;
     
